@@ -1,0 +1,21 @@
+@use './../src/styles/partials/typography' as *;
+@use './../src/styles/partials/mixin' as *;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding:0;
+    font-family: "AvenirNext", sans-serif;
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    /* Inherits font from parent (body) */
+}
+

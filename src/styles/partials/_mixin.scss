@@ -1,0 +1,79 @@
+@use './variables' as *;
+@use './typography' as *;
+
+/*------------------------------------------------------- 
+   Added Mixins and media Queries for Tablet and 
+    Desktop breakpoints 
+  -------------------------------------------------------*/
+@mixin tablet {
+    @media screen and (min-width:$tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width:$desktop-breakpoint) {
+        @content;
+    }
+}
+
+/*-----------------------------------------------------------
+   Added common Mixins for Setting Fonts of BrainFlix
+-----------------------------------------------------------*/
+@mixin set-font ($fontSize, $lineheight, $fontWeight) {
+    font-size: $fontSize;
+    line-height: $lineheight ;
+    font-weight: $fontWeight;
+}
+
+/*-----------------------------------------------------------
+   Added common Mixin for styling Search image in header   
+-----------------------------------------------------------*/
+@mixin set-search-image-style($screenType) {
+    border-radius: 50%;
+    object-fit: cover;
+
+    @if($screenType =="Mobile") {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    @if($screenType =="TabletDesktop") {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+/*-----------------------------------------------------------
+   Added common Mixins for Setting styling Button for site
+-----------------------------------------------------------*/
+@mixin set-button-style($screenType) {
+    height: 2.5rem;
+    padding: 0 2rem;
+    border-radius: 4px;
+    background-color: $primary-blue;
+    border-style: none;
+    color: $primary-white;
+    @include set-font(0.75rem, 1rem, 600);
+
+    @if($screenType =="Mobile") {
+        width: 100%;
+    }
+
+    @if($screenType =="TabletDesktop") {
+        width: 9.8rem;
+    }
+}
+
+/*-----------------------------------------------------------
+   Added common Mixins for Setting styling for Icons appear 
+   on button of site
+-----------------------------------------------------------*/
+@mixin set-icon-style($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 1.2rem;
+    padding-left: 1rem;
+    background-position-x: 0.5rem;
+}

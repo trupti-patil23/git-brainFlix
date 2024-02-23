@@ -1,0 +1,46 @@
+@use './../../styles/partials/mixin' as *;
+@use './../../styles/partials/mixin-mobile' as *;
+@use './../../styles/partials/variables' as *;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: $primary-white;
+
+    &__logo {
+        padding-left: 5rem;
+    }
+
+    &__row {
+        width: 100%;
+    }
+
+    &__middle-row {
+        width: 100%;
+        display: flex;
+    }
+
+    &__search-textbox {
+        width: 80%;
+        @include set-icon-style($search-icon-url);
+        background-size: 1rem;
+
+        &::placeholder {
+            color:$secondary-darkBlack;
+            padding-left:1rem; 
+            font-size: small;         
+        }
+    }
+
+    &__image {
+        @include set-search-image-style("Mobile");
+        margin-left: 1rem;
+    }
+
+    &__upload-button {
+        @include set-button-style("Mobile");
+        @include set-icon-style($upload-icon-url);
+    }
+}

@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./../../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("./../../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./../../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"), url("./../../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./../../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("./../../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff");
+  font-weight: 700;
+}
+/*Tablet, Desktop breakpoint varibles*/
+/* Primary Colors */
+/* Secondary Colors */
+/*Icons Path */
+/*------------------------------------------------------- 
+   Added Mixins and media Queries for Tablet and 
+    Desktop breakpoints 
+  -------------------------------------------------------*/
+/*-----------------------------------------------------------
+   Added common Mixins for Setting Fonts of BrainFlix
+-----------------------------------------------------------*/
+/*-----------------------------------------------------------
+   Added common Mixin for styling Search image in header   
+-----------------------------------------------------------*/
+/*-----------------------------------------------------------
+   Added common Mixins for Setting styling Button for site
+-----------------------------------------------------------*/
+/*-----------------------------------------------------------
+   Added common Mixins for Setting styling for Icons appear 
+   on button of site
+-----------------------------------------------------------*/
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "AvenirNext", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  /* Inherits font from parent (body) */
+}/*# sourceMappingURL=App.css.map */
