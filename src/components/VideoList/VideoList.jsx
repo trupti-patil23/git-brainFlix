@@ -10,27 +10,33 @@ const VideoList = (props) => {
     //Get the video's list from props and set it to videoListData
     const videoListData = props.videoList;
 
+    //Get the selected video and set it to selectedVideo
+    const selectedVideo = props.selectedVideo;
+
     return (<section className="videos">
         <h2 className="videos__title">NEXT VIDEOS</h2>
         <ul className="videos__list">
             {   //Iterate videoListData using map and display channel,title,image property of each video
-                videoListData.map((video) => {
-                    return (
-                        <li key={video.id} className="videos__item">
-                            <div className="videos__image-container">
-                                <img className="videos__image" src={video.image} alt="VideoImage"></img>
-                            </div>
-                            <div className="videos__title-container">
-                                <div className="videos__image-title">
-                                    {video.title}
+
+                videoListData.filter((video) => (video.id != selectedVideo.id))
+                    .map((video) => {
+                        return (
+                            <li key={video.id} className="videos__item"
+                                onClick={() => props.handleVideoClick(video.id)}>
+                                <div className="videos__image-container">
+                                    <img className="videos__image" src={video.image} alt="VideoImage"></img>
                                 </div>
-                                <div className="videos__image-channel">
-                                    {video.channel}
+                                <div className="videos__title-container">
+                                    <div className="videos__image-title">
+                                        {video.title}
+                                    </div>
+                                    <div className="videos__image-channel">
+                                        {video.channel}
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    );
-                })
+                            </li>
+                        );
+                    })
             }
         </ul>
     </section>
