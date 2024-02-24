@@ -1,3 +1,10 @@
+/*Tablet, Desktop breakpoint varibles*/
+/* Primary Colors */
+/* Secondary Colors */
+/*Icons Path */
+/*padding/margin variables for mobile(m) breakpoint*/
+/*padding/margin variables for Desktop/tablet(dt) breakpoint*/
+/*Boder-Radius : 4px for site*/
 @font-face {
   font-family: "AvenirNext";
   src: url("./../../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("./../../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff");
@@ -13,13 +20,6 @@
   src: url("./../../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("./../../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff");
   font-weight: 700;
 }
-/*Tablet, Desktop breakpoint varibles*/
-/* Primary Colors */
-/* Secondary Colors */
-/*Icons Path */
-/*padding/margin variables for mobile(m) breakpoint*/
-/*padding/margin variables for Desktop/tablet(dt) breakpoint*/
-/*Boder-Radius : 4px for site*/
 /*------------------------------------------------------- 
    Added Mixins and media Queries for Tablet and 
     Desktop breakpoints 
@@ -41,20 +41,49 @@
 /*-----------------------------------------------------------
    Added common Mixins for styling textbox
 -----------------------------------------------------------*/
-* {
-  box-sizing: border-box;
+/*-----------------------------------------------------------
+   Added mixin for Setting Mobile Font Styling
+-----------------------------------------------------------*/
+.videos__title {
+  margin-left: 1rem;
+  margin-bottom: 0;
+  color: #AFAFAF;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  font-weight: 600;
 }
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "AvenirNext", sans-serif;
+.videos__list {
+  padding: 1rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0;
 }
-
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  /* Inherits font from parent (body) */
-}/*# sourceMappingURL=App.css.map */
+.videos__item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.videos__image-container {
+  width: 40%;
+}
+.videos__image {
+  width: 100%;
+  background-position: center;
+  border-radius: 4px;
+}
+.videos__title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+  margin-bottom: 0.2rem;
+}
+.videos__image-title {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  font-weight: 600;
+}
+.videos__image-channel {
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 400;
+}/*# sourceMappingURL=VideoList.css.map */

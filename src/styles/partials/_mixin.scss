@@ -50,7 +50,7 @@
 @mixin set-button-style($screenType) {
     height: 2.5rem;
     padding: 0 2rem;
-    border-radius: 4px;
+    border-radius: $border-radius;
     background-color: $primary-blue;
     border-style: none;
     color: $primary-white;
@@ -74,6 +74,22 @@
     background-repeat: no-repeat;
     background-position: left;
     background-size: 1.2rem;
-    padding-left: 1rem;
+    padding-left: $m-padding;
     background-position-x: 0.5rem;
+}
+
+/*
+/*-----------------------------------------------------------
+   Added common Mixins for styling textbox
+-----------------------------------------------------------*/
+@mixin set-form-inputfeild-style {
+    background-color: $secondary-alabaster;
+    border-radius: $border-radius;
+    border: 1px solid $secondary-mercury;
+
+    &::placeholder {
+        color: $secondary-darkBlack;
+        padding-left: $m-padding;
+        font-size: small;
+    }
 }

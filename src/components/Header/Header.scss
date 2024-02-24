@@ -5,7 +5,7 @@
 .header {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: $m-padding;
     gap: 1rem;
     background-color: $primary-white;
 
@@ -23,20 +23,23 @@
     }
 
     &__search-textbox {
-        width: 80%;
+        min-width: 15rem;
+        max-width: 100%;
+        height: 2.25rem;
+        padding: 0.8rem;
+        @include set-form-inputfeild-style();
         @include set-icon-style($search-icon-url);
-        background-size: 1rem;
+        background-size: 1rem; //This size for Search Icon   
 
-        &::placeholder {
-            color:$secondary-darkBlack;
-            padding-left:1rem; 
-            font-size: small;         
+        @include tablet {
+            height: 2.5rem;
+            padding: 1rem;
         }
     }
 
     &__image {
         @include set-search-image-style("Mobile");
-        margin-left: 1rem;
+        margin-left: $m-margin;
     }
 
     &__upload-button {
