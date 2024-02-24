@@ -1,4 +1,4 @@
-import './VideoList.scss';
+import "./VideoList.scss";
 
 /**
  * VideoList Component:Added to list down all the video's details(channel,title,image) 

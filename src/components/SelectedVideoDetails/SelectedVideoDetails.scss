@@ -1,0 +1,50 @@
+@use './../../styles/partials/mixin-mobile' as *;
+@use './../../styles/partials/variables' as *;
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: $m-padding;
+
+    &__title {
+        @include set-mobile-font("PageHeader");
+        margin: 0;
+        padding-bottom: 1.1rem;
+        border-bottom: 1px solid $secondary-mercury;
+    }
+
+    &__container {
+        padding: $m-padding 0;
+        display: flex;
+        gap: $m-spacing-between-components;
+        border-bottom: 1px solid $secondary-mercury;
+        @include set-mobile-font("SubHeader");
+    }
+
+    &__channel-timestamp {
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    &__timestamp {
+        color: $primary-silver;
+    }
+
+    &__views-likes {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        color: $primary-silver;
+    }
+
+    &__icons {
+        margin-right: 0.5rem;
+    }
+
+    &__description {
+        margin-top:$m-margin;
+        @include set-mobile-font("BodyFont");
+
+    }
+}

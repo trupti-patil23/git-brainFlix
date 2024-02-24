@@ -1,1 +1,1 @@
-{"version":3,"sources":["SelectedVideo.scss","SelectedVideo.css"],"names":[],"mappings":"AACI;EACI,eAAA;EACA,2BAAA;ACAR","file":"SelectedVideo.css"}
+{"version":3,"sources":["../../styles/partials/_variables.scss","SelectedVideo.scss","SelectedVideo.css"],"names":[],"mappings":"AAAA,sCAAA;AAIA,mBAAA;AAMA,qBAAA;AAMA,cAAA;AAIA,oDAAA;AAKA,6DAAA;AAKA,8BAAA;AC5BA;EACI,yBDUgB;AEJpB;ADJI;EACI,eAAA;EACA,2BAAA;ACMR","file":"SelectedVideo.css"}

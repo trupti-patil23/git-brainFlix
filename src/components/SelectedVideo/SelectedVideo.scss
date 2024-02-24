@@ -1,4 +1,8 @@
+@use './../../styles/partials/variables' as *;
+
 .selected {
+    background-color: $secondary-mercury;
+        
     &__poster{
         max-width:100%;
         background-position: center;

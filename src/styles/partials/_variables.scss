@@ -15,18 +15,18 @@ $secondary-mercury: #E1E1E1;
 $secondary-alabaster: #FAFAFA;
 
 /*Icons Path */
-$upload-icon-url: "./../../assets/Icons/upload.svg";
-$search-icon-url: "./../../assets/Icons/search.svg";
+$upload-icon-url: "./../../assets/icons/upload.svg";
+$search-icon-url: "./../../assets/icons/search.svg";
 
 /*padding/margin variables for mobile(m) breakpoint*/
 $m-padding: 1rem;
 $m-margin: 1rem;
-$m-padding-or-margin-top: 1.5rem;
+$m-spacing-between-components: 1.5rem;
 
 /*padding/margin variables for Desktop/tablet(dt) breakpoint*/
 $dt-padding: 1.5rem;
 $dt-margin: 1.5rem;
-$dt-padding-or-margin-top: 2.3rem;
+$dt-spacing-between-components: 2.3rem;
 
 /*Boder-Radius : 4px for site*/
 $border-radius: 4px;

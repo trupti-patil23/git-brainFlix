@@ -44,47 +44,27 @@
 /*-----------------------------------------------------------
    Added mixin for Setting Mobile Font Styling
 -----------------------------------------------------------*/
-.videos__title {
-  margin-left: 1rem;
-  margin-bottom: 0;
-  color: #AFAFAF;
-  font-size: 0.8rem;
-  line-height: 1.2rem;
-  font-weight: 600;
-}
-.videos__list {
-  padding: 1rem;
-  margin-bottom: 0.6rem;
-  margin-top: 0;
-}
-.videos__item {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-}
-.videos__image-container {
-  background-color: #E1E1E1;
-  width: 40%;
-}
-.videos__image {
-  width: 100%;
-  background-position: center;
-  border-radius: 4px;
-}
-.videos__title-container {
+.details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 60%;
-  margin-bottom: 0.2rem;
+  padding: 1rem;
 }
-.videos__image-title {
-  font-size: 0.8rem;
-  line-height: 1.2rem;
-  font-weight: 600;
+.details__title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #E1E1E1;
 }
-.videos__image-channel {
-  font-size: 0.8rem;
-  line-height: 1.1rem;
-  font-weight: 400;
-}/*# sourceMappingURL=VideoList.css.map */
+.details__container {
+  display: flex;
+}
+.details__channel-timestamp {
+  display: flex;
+  flex-direction: column;
+}
+.details___views-likes {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=SelectedVideoDetails.css.map */

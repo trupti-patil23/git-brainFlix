@@ -1,7 +1,7 @@
-import "./SelectedVideo.scss"
+import "./SelectedVideo.scss";
 
 /**
- * SelectedVideo Component: Added this component to show selected video from "Nextvideo" section
+ * SelectedVideo Component: Added this component to show selected video from "Nextvideo"
  * @param {*} props 
  * @returns 
  */
