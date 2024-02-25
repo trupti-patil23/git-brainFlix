@@ -29,13 +29,14 @@
     &__container {
         display: flex;
         gap: 1rem;
+        border-bottom: 1px solid $secondary-mercury;
 
         @include tablet {
             margin: 0 3.6rem;
         }
     }
 
-    &__image {      
+    &__image {
         @include set-mohan-muruge-image-style("Mobile");
 
         @include tablet {
@@ -51,9 +52,9 @@
 
     &__textarea {
         height: 5.5rem;
-        width:100%;
+        width: 100%;
         resize: none;
-        @include set-form-inputfeild-style;         
+        @include set-form-inputfeild-style;
     }
 
     &__button {
@@ -65,5 +66,65 @@
             margin: 1.5rem 0;
             @include set-button-style("TabletDesktop")
         }
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        list-style-type: none;
+        border-bottom: 1px solid $secondary-mercury;
+
+        @include tablet {
+            margin: 0 3.6rem;
+        }
+    }
+
+    &__main-container {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__item-image {
+        @include set-mohan-muruge-image-style("Mobile");
+        background-color: $secondary-mercury;
+        margin-top: 1rem;
+
+        @include tablet {
+            @include set-mohan-muruge-image-style("TabletDesktop");
+        }
+    }
+
+    &__sub-container {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 1rem 0;
+        gap: 0.6rem;
+
+        @include tablet {
+            width: 90%;
+        }
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__item-name {
+        @include set-mobile-font("SubHeader");
+    }
+
+    &__item-date {
+        @include set-mobile-font("SubHeader");
+        color: $primary-silver;
+        font-weight: 400;
+    }
+
+    &__item-comment {
+        @include set-mobile-font("BodyFont");
     }
 }

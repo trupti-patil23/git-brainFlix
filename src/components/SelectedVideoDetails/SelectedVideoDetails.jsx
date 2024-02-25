@@ -1,4 +1,5 @@
 import "./SelectedVideoDetails.scss";
+import formatLocaleDate from "./../../scripts/utils.js" 
 import ViewImage from "./../../assets/icons/views.svg";
 import LikesImage from "./../../assets/icons/likes.svg";
 
@@ -26,7 +27,7 @@ const SelectedVideoDetails = (props) => {
                         {selectedVideo.channel}
                     </div>
                     <div className="details__timestamp">
-                        {new Date(selectedVideo.timestamp).toLocaleDateString()}
+                        {formatLocaleDate(selectedVideo.timestamp)}
                     </div>
                 </div>
                 <div className="details__views-likes">

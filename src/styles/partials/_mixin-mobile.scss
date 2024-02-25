@@ -10,11 +10,11 @@
     }
 
     @if($type =="SectionHeader") {
-        @include set-font(0.8rem, 1.2rem, 600);
+        @include set-font(0.8rem, 1.25rem, 600);
     }
 
     @if($type =="SubHeader") {
-        @include set-font(0.8rem, 1.1rem, 600);
+        @include set-font(0.75rem, 1.12rem, 600);
     }
 
     @if($type =="BodyFont") {
