@@ -18,7 +18,7 @@ const VideoList = (props) => {
         <ul className="videos__list">
             {   //Iterate videoListData using map and display channel,title,image property of each video
 
-                videoListData.filter((video) => (video.id != selectedVideo.id))
+                videoListData.filter((video) => (video.id !== selectedVideo.id)) 
                     .map((video) => {
                         return (
                             <li key={video.id} className="videos__item"

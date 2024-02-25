@@ -1,0 +1,69 @@
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixin" as *;
+@use "./../../styles/partials/mixin-mobile" as *;
+@use "./../../styles/partials/mixin-desktop-tablet" as *;
+
+.comments {
+    margin: 0 $m-margin $m-margin $m-margin;
+
+    @include tablet {
+        margin: $dt-margin;
+    }
+
+    &__count-heading {
+        @include set-mobile-font("SubHeader");
+        margin-bottom: $m-spacing-between-components;
+    }
+
+    &__title {
+        @include set-mobile-font("SubHeader");
+        color: $primary-silver;
+        margin-left: 3.3rem;
+
+        @include tablet {
+            @include set-desktop-tablet-font("SectionHeader");
+            padding: 1rem 0 1.3rem 0;
+        }
+    }
+
+    &__container {
+        display: flex;
+        gap: 1rem;
+
+        @include tablet {
+            margin: 0 3.6rem;
+        }
+    }
+
+    &__image {      
+        @include set-mohan-muruge-image-style("Mobile");
+
+        @include tablet {
+            @include set-mohan-muruge-image-style("TabletDesktop");
+        }
+    }
+
+    &__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__textarea {
+        height: 5.5rem;
+        width:100%;
+        resize: none;
+        @include set-form-inputfeild-style;         
+    }
+
+    &__button {
+        @include set-button-style("Mobile");
+        margin: 1rem 0;
+        @include set-icon-style($comment-icon-url);
+
+        @include tablet {
+            margin: 1.5rem 0;
+            @include set-button-style("TabletDesktop")
+        }
+    }
+}

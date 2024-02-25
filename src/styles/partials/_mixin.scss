@@ -29,7 +29,7 @@
 /*-----------------------------------------------------------
    Added common Mixin for styling Search image in header   
 -----------------------------------------------------------*/
-@mixin set-search-image-style($screenType) {
+@mixin set-mohan-muruge-image-style($screenType) {
     border-radius: 50%;
     object-fit: cover;
 
@@ -90,6 +90,7 @@
     &::placeholder {
         color: $secondary-darkBlack;
         padding-left: $m-padding;
+        padding-top:0.5rem;
         font-size: small;
     }
 }
