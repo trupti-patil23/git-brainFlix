@@ -29,7 +29,7 @@ function App() {
     const clickedVideo = videoList.find((video) => {
       return video.id === id;
     });
-    console.log(clickedVideo);
+   
     /*Passed clickedVideo object to setSelectedVideo 
       high order function(refer selectedVideo state variable declaration) 
      and it will change the state of video component with the newwly selected video*/
@@ -37,21 +37,35 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="app">
 
-        <Header />
+      <Header />
 
-        <SelectedVideo selectedVideo={selectedVideo} />
+      <SelectedVideo selectedVideo={selectedVideo} />
 
-        <SelectedVideoDetails selectedVideo={selectedVideo} />
+      <div className="app__container">
+        <div className="app__column">
 
-        <Comments selectedVideo={selectedVideo} />
+          <div className="app__row">
+            <SelectedVideoDetails selectedVideo={selectedVideo} />
+          </div>
 
-        <VideoList
-          videoList={videoList}
-          selectedVideo={selectedVideo}
-          handleVideoClick={handleVideoClick}
-        />        
+          <div className="app__row">
+            <Comments selectedVideo={selectedVideo} />
+          </div>
+
+        </div>
+
+        <div className="app__column">
+
+          <VideoList 
+            videoList={videoList}
+            selectedVideo={selectedVideo}
+            handleVideoClick={handleVideoClick} />
+
+        </div>
+
+      </div>
     </div>
   );
 }

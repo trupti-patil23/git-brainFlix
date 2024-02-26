@@ -5,6 +5,10 @@
 
 .videos {  
     margin-left:$m-margin;
+
+    @include tablet{
+        margin-left:$dt-margin;
+    }
     
     &__title {      
         margin:0;
@@ -13,6 +17,10 @@
 
         @include tablet {
             @include  set-desktop-tablet-font("SubHeader");
+        }
+
+        @include desktop {
+            margin-top:2rem;
         }
     }
 
@@ -26,7 +34,11 @@
     &__item {
         display: flex;  
         gap: 1rem;   
-        margin-bottom: 0.8rem;                  
+        margin-bottom: 0.8rem; 
+        
+        @include tablet {
+            margin-bottom: $dt-margin; 
+        }
     }
 
     &__image-container {
@@ -35,6 +47,10 @@
         
         @include tablet {
             width:15%;
+        }
+
+        @include desktop {
+            width:25%;            
         }
     }
 

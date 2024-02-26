@@ -7,12 +7,20 @@
     flex-wrap:wrap;    
     padding: $m-padding;
     gap: 0.9rem;
-    background-color: $primary-white;    
+    background-color: $primary-white;  
+    
+    @include tablet {
+        gap: 1.5rem;
+    }
     
     &__logo {
         padding-left: 5.5rem;
         @include tablet {
             padding-left:$dt-padding;
+        }
+
+        @include desktop {
+            padding-left:7rem;
         }
     }  
 
@@ -22,6 +30,10 @@
         @include tablet {
             width: 30%;
             align-self: center;
+        }
+
+        @include desktop {
+            width:50%;
         }
     }   
 
@@ -44,6 +56,7 @@
         @include set-mohan-muruge-image-style("Mobile");  
 
         @include tablet {
+            @include set-mohan-muruge-image-style("TabletDesktop");
             order:3;
         }     
     }

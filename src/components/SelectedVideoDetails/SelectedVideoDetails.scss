@@ -12,6 +12,10 @@
         padding: $dt-padding 2rem 0 2rem;
     }
 
+    @include desktop {
+        padding:1.5rem 0 1.5rem 8rem;
+    }
+
     &__title {
         @include set-mobile-font("PageHeader");
         margin: 0;
@@ -33,6 +37,10 @@
         @include tablet {
             justify-content: space-between;
             padding: 0;           
+        }
+
+        @include desktop {
+            padding-right:$dt-padding;
         }
     }
 
