@@ -12,28 +12,29 @@
 
     &__count-heading {
         @include set-mobile-font("SubHeader");
-        margin-bottom: $m-spacing-between-components;
+        margin-bottom: $m-margin;
+
+        @include tablet {
+            @include set-desktop-tablet-font("SectionHeader");
+            margin-bottom:0;
+        }
     }
 
     &__title {
-        @include set-mobile-font("SubHeader");
+        @include set-mobile-font("LabelFont");
         color: $primary-silver;
         margin-left: 3.3rem;
 
         @include tablet {
-            @include set-desktop-tablet-font("SectionHeader");
-            padding: 1rem 0 1.3rem 0;
+            @include set-desktop-tablet-font("SubHeader");
+            padding-top: 1rem;
         }
     }
 
     &__container {
         display: flex;
         gap: 1rem;
-        border-bottom: 1px solid $secondary-mercury;
-
-        @include tablet {
-            margin: 0 3.6rem;
-        }
+        border-bottom: 1px solid $secondary-mercury;      
     }
 
     &__image {
@@ -48,13 +49,24 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+
+        @include tablet {
+            flex-direction:row;
+            gap:2.5rem;
+            margin-bottom: $dt-margin;
+        }
     }
 
     &__textarea {
-        height: 5.5rem;
+        height: 6rem;
         width: 100%;
         resize: none;
         @include set-form-inputfeild-style;
+
+        @include tablet {
+            height: 2.5rem;
+            width:70%;
+        }
     }
 
     &__button {
@@ -63,7 +75,7 @@
         @include set-icon-style($comment-icon-url);
 
         @include tablet {
-            margin: 1.5rem 0;
+            margin:0;            
             @include set-button-style("TabletDesktop")
         }
     }
@@ -75,16 +87,16 @@
 
     &__item {
         list-style-type: none;
-        border-bottom: 1px solid $secondary-mercury;
-
-        @include tablet {
-            margin: 0 3.6rem;
-        }
+        border-bottom: 1px solid $secondary-mercury;        
     }
 
     &__main-container {
         display: flex;
         gap: 1rem;
+
+        @include tablet {
+            padding: 0.5rem 0;
+        }
     }
 
     &__item-image {
@@ -105,7 +117,7 @@
         gap: 0.6rem;
 
         @include tablet {
-            width: 90%;
+            width: 100%;
         }
     }
 

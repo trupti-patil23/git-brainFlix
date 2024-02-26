@@ -1,34 +1,61 @@
-@use './../../styles/partials/mixin-mobile' as *;
-@use './../../styles/partials/variables' as *;
+@use "./../../styles/partials/mixin" as *;
+@use "./../../styles/partials/variables" as *; 
+@use "./../../styles/partials/mixin-mobile" as *;
+@use "./../../styles/partials/mixin-desktop-tablet" as *;
 
 .details {
     display: flex;
     flex-direction: column;
     padding: $m-padding;
 
+    @include tablet {
+        padding: $dt-padding 2rem 0 2rem;
+    }
+
     &__title {
         @include set-mobile-font("PageHeader");
         margin: 0;
         padding-bottom: $m-padding;
         border-bottom: 1px solid $secondary-mercury;
+
+        @include tablet {
+            @include set-desktop-tablet-font("PageHeader");
+            border: none;
+        }
     }
 
     &__container {
-        padding: $m-padding 0;
+        padding: $m-padding 0 0.7rem 0;
         display: flex;
-        gap: $m-spacing-between-components;
-        border-bottom: 1px solid $secondary-mercury;
-        @include set-mobile-font("SubHeader");
+        gap: 2rem;
+        border-bottom: 1px solid $secondary-mercury;       
+
+        @include tablet {
+            justify-content: space-between;
+            padding: 0;           
+        }
     }
 
     &__channel-timestamp {
         display: flex;
         gap: 1rem;
         flex-direction: column;
+        @include set-mobile-font("SubHeader");
+
+        @include tablet {
+            flex-direction: row; 
+            gap:2rem;    
+            @include set-desktop-tablet-font("SubHeader");       
+        }
     }
 
     &__timestamp {
         color: $primary-silver;
+        @include set-mobile-font("BodyFont");
+
+        @include tablet{
+            @include set-desktop-tablet-font("LabelFont");
+        }
     }
 
     &__views-likes {
@@ -36,6 +63,25 @@
         flex-direction: column;
         gap: 0.5rem;
         color: $primary-silver;
+        @include set-mobile-font("BodyFont");
+
+        @include tablet {
+            flex-direction: row;
+            gap:2rem;    
+            @include set-desktop-tablet-font("LabelFont");
+        }
+    }
+
+    &__vl-subcontainer{
+        display:flex;      
+    }
+
+    &__views{
+        padding-bottom: 0.3rem;
+    }
+
+    &__likes{
+        padding-bottom: 0.3rem;
     }
 
     &__icons {
@@ -43,8 +89,12 @@
     }
 
     &__description {
-        margin-top:$m-margin;
+        margin-top: $m-margin;
         @include set-mobile-font("BodyFont");
 
+        @include tablet {
+            margin-top: $dt-margin;
+            @include set-desktop-tablet-font("BodyFont");
+        }
     }
 }

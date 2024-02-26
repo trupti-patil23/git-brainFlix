@@ -1,36 +1,48 @@
-@use './../../styles/partials/mixin' as *;
-@use './../../styles/partials/mixin-mobile' as *;
-@use './../../styles/partials/variables' as *;
+@use "./../../styles/partials/mixin" as *;
+@use "./../../styles/partials/mixin-mobile" as *;
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixin-desktop-tablet" as *;
 
-.videos {    
-    &__title {
-        margin-left: $m-margin;
-        margin-bottom:0;
+.videos {  
+    margin-left:$m-margin;
+    
+    &__title {      
+        margin:0;
         color: $primary-silver;        
-        @include set-mobile-font("SectionHeader");
+        @include set-mobile-font("LabelFont");
+
+        @include tablet {
+            @include  set-desktop-tablet-font("SubHeader");
+        }
     }
 
-    &__list {           
-        padding:$m-padding; 
-        margin-bottom: 0.6rem;
-        margin-top: 0;      
+    &__list {         
+        padding: 0;
+        margin: 0;  
+        margin-top: 1rem;
+        margin-bottom: 2.5rem;   
     }
 
     &__item {
         display: flex;  
         gap: 1rem;   
-        margin-bottom: 0.5rem;                  
+        margin-bottom: 0.8rem;                  
     }
 
     &__image-container {
         background-color: $secondary-mercury;
-        width:40%;        
+        width:40%;  
+        
+        @include tablet {
+            width:15%;
+        }
     }
 
     &__image {
         width: 100%;
         background-position: center;  
-        border-radius:$border-radius;       
+        border-radius:$border-radius; 
+        display: block;      
     }
 
     &__title-container {

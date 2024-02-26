@@ -26,13 +26,13 @@ const Comments = (props) => {
                 <img className="comments__image"
                     src={CommentImage} alt="MohanMurugeImage" />
 
-                <form className="comments_form" id="comment-form">
+                <div className="comments__form" id="comment-form">
                     <textarea className="comments__textarea" name="comments" id="comments"
                         placeholder="Add a new comment">
                     </textarea>
 
                     <button className="comments__button">COMMENT</button>
-                </form>
+                </div>
             </div>
 
             {/* List down all comments for selected video */}
