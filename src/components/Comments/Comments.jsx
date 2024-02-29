@@ -12,11 +12,12 @@ import formatLocaleDate from "./../../scripts/utils.js";
 const Comments = (props) => {
 
     //Get the comments array from props
-    const commentsArray = props.selectedVideo.comments;
+    const commentsArray = props.selectedVideoComments;
 
     return (
+
         <div className="comments">
-            {/* Join the Conversation section : Users to add new comment for selected video */}
+            Join the Conversation section : Users to add new comment for selected video
             <div className="comments__count-heading">
                 {commentsArray.length} <span> Comments</span>
             </div>
@@ -37,7 +38,7 @@ const Comments = (props) => {
 
             {/* List down all comments for selected video */}
             <ul className="comments__list">
-                {commentsArray.map((commentObject) => {
+                {commentsArray?.map((commentObject) => {
                     return (
                         <li key={commentObject.id} className="comments__item">
                             <div className="comments__main-container">

@@ -1,0 +1,25 @@
+@use "./../../styles/partials/mixin" as *;
+@use "./../../styles/partials/variables" as *;
+
+@include desktop {
+    .home {
+        &__container {
+            display: flex;
+        }
+
+        &__row {
+            flex: 1;
+            border-right: 1px solid $secondary-mercury;
+        }
+
+        &__column {
+            flex: 1 0 50%;
+            display: flex;
+            flex-direction: column;
+
+            &:nth-child(2) {
+                flex: 2;
+            }
+        }
+    }
+}
