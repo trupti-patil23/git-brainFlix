@@ -10,11 +10,7 @@ import LikesImage from "./../../assets/icons/likes.svg";
  * @returns 
  */
 
-const SelectedVideoDetails = (props) => {
-
-    //Get the selected video from props and set it to selectedVideo
-    const selectedVideo = props.selectedVideo;
-
+const SelectedVideoDetails = ({selectedVideo}) => {
     return (
         <section className="details">
             <h2 className="details__title">

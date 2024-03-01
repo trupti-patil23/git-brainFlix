@@ -1,4 +1,5 @@
 import "./VideoList.scss";
+import { Link } from "react-router-dom";
 
 /**
  * VideoList Component:Added to list down all the video's details(channel,title,image) 
@@ -18,13 +19,15 @@ const VideoList = (props) => {
         <ul className="videos__list">
             {   //Iterate videoListData using map and display channel,title,image property of each video
 
-                videoListData.filter((video) => (video.id !== selectedVideo.id)) 
+                videoListData.filter((video) => (video.id !== selectedVideo.id))
                     .map((video) => {
                         return (
-                            <li key={video.id} className="videos__item"
-                                onClick={() => props.handleVideoClick(video.id)}>
+                            <li key={video.id} className="videos__item">
+
                                 <div className="videos__image-container">
-                                    <img className="videos__image" src={video.image} alt="VideoImage"></img>
+                                    <Link to={`/videos/${video.id}`}>
+                                        <img className="videos__image" src={video.image} alt="VideoImage"></img>
+                                    </Link>
                                 </div>
                                 <div className="videos__title-container">
                                     <div className="videos__image-title">

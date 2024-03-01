@@ -9,6 +9,7 @@ const SelectedVideo = (props) => {
     return (
         <div className="selected">
             <video poster={props.selectedVideo.image} className="selected__poster" controls>
+            {/* <video poster={image} className="selected__poster" controls>  */}
             </video>
         </div>
     );
