@@ -1,0 +1,68 @@
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/mixin" as *;
+@use "./../../styles/partials/mixin-mobile" as *;
+
+.upload {
+    border-top: 1px solid $secondary-mercury;
+
+    &__hero-container {
+        margin-left: $m-margin;
+        margin-right: $m-margin;
+    }
+
+    &__title {
+        margin: $m-spacing-between-components 0 $m-margin $m-margin;
+        @include set-mobile-font("PageHeader");
+    }
+
+    &__label {
+        @include set-mobile-font("LabelFont");
+        margin-top: $m-margin;
+        color: $primary-silver;
+    }
+
+    &__image-container {
+        background-color: $secondary-mercury;
+        width: 100%;
+    }
+
+    &__image {
+        width: 100%;
+        background-position: center;
+        border-radius: $border-radius;
+        display: block;
+    }
+
+    &__form-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__video-name {
+        height: 2.5rem;
+        padding: 0.8rem;
+        @include set-form-inputfeild-style;
+    }
+
+    &__video-description {
+        height: 5.5rem;
+        padding: 0.8rem;
+        resize: none;
+        @include set-form-inputfeild-style;
+    }
+
+    &__publish-button {
+        margin-top: $m-spacing-between-components;
+        @include set-icon-style($upload-icon-url);
+        @include set-button-style("Mobile");
+    }
+
+    &__cancel-link {
+        @include set-font(0.75rem, 1rem, 600);
+        margin: 2.5rem 0;
+        color: $primary-blue;
+        text-decoration: none;
+        align-self: center;
+    }
+}
