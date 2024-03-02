@@ -1,4 +1,5 @@
 import "./Header.scss";
+import { Link } from "react-router-dom";
 import BrainFlixLogo from "./../../assets/logo/BrainFlix-logo.svg";
 import searchImage from "./../../assets/images/Mohan-muruge.jpg";
 
@@ -10,11 +11,15 @@ const Header = () => {
     return (
         <header className="header">
             <div className="header__row">
-                <img className="header__logo" alt="BrainFlixLogo" src={BrainFlixLogo} />
+                <Link to="/">
+                    <img className="header__logo" alt="BrainFlixLogo" src={BrainFlixLogo} />
+                </Link>
             </div>
             <input className="header__search-textbox" type="text" name="search" id="search" placeholder="Search"></input>
             <img className="header__image" alt="SearchImage" src={searchImage} />
-            <button className="header__upload-button"> UPLOAD</button>
+            <Link className="header__link" to="/upload">                
+                <button className="header__upload-button"> UPLOAD</button>
+            </Link>
         </header>
     );
 }

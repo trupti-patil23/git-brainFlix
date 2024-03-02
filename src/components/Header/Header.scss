@@ -70,4 +70,12 @@
             order:2;
         }
     }
+
+    &__link {
+        width:100%;
+
+        @include tablet {
+            width:fit-content;
+        }
+    }
 }

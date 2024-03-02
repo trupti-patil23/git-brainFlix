@@ -2,14 +2,13 @@ import "./SelectedVideo.scss";
 
 /**
  * SelectedVideo Component: Added this component to show selected video from "Nextvideo"
- * @param {*} props 
+ * @param {*} image 
  * @returns 
  */
-const SelectedVideo = (props) => {
+const SelectedVideo = ({image}) => {
     return (
-        <div className="selected">
-            <video poster={props.selectedVideo.image} className="selected__poster" controls>
-            {/* <video poster={image} className="selected__poster" controls>  */}
+        <div className="selected">           
+            <video poster={image} className="selected__poster" controls> 
             </video>
         </div>
     );

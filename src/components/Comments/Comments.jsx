@@ -6,19 +6,15 @@ import formatLocaleDate from "./../../scripts/utils.js";
  * Comments component: Added this component for,
  * a. Join the Conversation section : Users to add new comment for selected video
  * b. List down all comments for selected video
- * @param {*} props 
+ * @param {*} selectedVideoComments 
  * @returns 
  */
-const Comments = (props) => {
-
-    //Get the comments array from props
-    const commentsArray = props.selectedVideoComments;  
-
+const Comments = ({selectedVideoComments}) => {
     return (         
         <div className="comments">      
         {/* Join the Conversation section : Users to add new comment for selected video */}     
             <div className="comments__count-heading">
-                {commentsArray?.length} <span> Comments</span>
+                {selectedVideoComments?.length} <span> Comments</span>
             </div>
             <div className="comments__title">JOIN THE CONVERSATION</div>
 
@@ -37,7 +33,7 @@ const Comments = (props) => {
 
             {/* List down all comments for selected video */}
             <ul className="comments__list">
-                {commentsArray?.map((commentObject) => {
+                {selectedVideoComments?.map((commentObject) => {
                     return (
                         <li key={commentObject.id} className="comments__item">
                             <div className="comments__main-container">

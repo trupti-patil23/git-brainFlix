@@ -22,22 +22,23 @@ const VideoList = (props) => {
                 videoListData.filter((video) => (video.id !== selectedVideo.id))
                     .map((video) => {
                         return (
-                            <li key={video.id} className="videos__item">
+                            <Link to={`/videos/${video.id}`}>
+                                <li key={video.id} className="videos__item">
 
-                                <div className="videos__image-container">
-                                    <Link to={`/videos/${video.id}`}>
+                                    <div className="videos__image-container">
                                         <img className="videos__image" src={video.image} alt="VideoImage"></img>
-                                    </Link>
-                                </div>
-                                <div className="videos__title-container">
-                                    <div className="videos__image-title">
-                                        {video.title}
                                     </div>
-                                    <div className="videos__image-channel">
-                                        {video.channel}
+                                    
+                                    <div className="videos__title-container">
+                                        <div className="videos__image-title">
+                                            {video.title}
+                                        </div>
+                                        <div className="videos__image-channel">
+                                            {video.channel}
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
+                            </Link>
                         );
                     })
             }

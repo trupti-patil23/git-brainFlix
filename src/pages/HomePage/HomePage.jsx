@@ -34,9 +34,7 @@ const HomePage = () => {
         } catch (error) {
             console.log("Error in getting selected Video data from method getSelecetdVideoData()", error);
         }
-
     }
-
 
     /**
      *Below useEffect() will run only once, when component mounts for the first time
@@ -49,18 +47,20 @@ const HomePage = () => {
         async function getVideosList() {
             try {
                 const response = await axios.get(`${BRAINFLIX_API_URL}/videos?api_key=${BRAINFLIX_API_KEY}`);
-                setVideoList(response.data);
+                const responseVideoList = response.data;
+                setVideoList(responseVideoList);
 
                 /*Set Video Data to state variable "selectedVideo" using Axios call with default video Id, 
                 Sent default video id if we get empty response in previous Axios call(list of videos) */
-                setSelectedVideo(await getSelecetdVideoData(BRAINFLIX_DEFAULT_VIDEO_ID));
+                if(!responseVideoList) {
+                    setSelectedVideo(await getSelecetdVideoData(BRAINFLIX_DEFAULT_VIDEO_ID));
+                }
 
             } catch (error) {
                 console.log("Error in getting videos list from useEffect()->getVideosList() method", error);
             }
         }
         getVideosList();
-
     }, []);
 
     /**
@@ -82,13 +82,13 @@ const HomePage = () => {
         setSelectedVideoData();
     }, [params]);
 
-    //Destructuring selectedVideo object
-    //const { image } = selectedVideo;
+    //Destructuring selectedVideo object for <SelectedVideo> component
+    const { image } = selectedVideo;
+
     return (
         <div className="home">
-            <SelectedVideo selectedVideo={selectedVideo} />
-
-            {/* <SelectedVideo image={image} /> */}
+            
+            <SelectedVideo image={image} />
 
             <div className="home__container">
                 <div className="home__column">
