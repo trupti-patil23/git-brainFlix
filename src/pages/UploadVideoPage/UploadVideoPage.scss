@@ -1,6 +1,7 @@
 @use "./../../styles/partials/variables" as *;
 @use "./../../styles/partials/mixin" as *;
 @use "./../../styles/partials/mixin-mobile" as *;
+@use "./../../styles/partials/mixin-desktop-tablet" as *;
 
 .upload {
     border-top: 1px solid $secondary-mercury;
@@ -8,11 +9,23 @@
     &__hero-container {
         margin-left: $m-margin;
         margin-right: $m-margin;
+
+        @include tablet {
+            margin-left: $dt-spacing-between-components;
+            margin-right: $dt-spacing-between-components;
+            border-top: 1px solid $secondary-mercury;
+        }
     }
 
     &__title {
         margin: $m-spacing-between-components 0 $m-margin $m-margin;
         @include set-mobile-font("PageHeader");
+
+        @include tablet {
+            margin: $dt-spacing-between-components 0 $dt-margin $dt-spacing-between-components;
+
+            @include set-desktop-tablet-font("PageHeader");
+        }
     }
 
     &__label {
@@ -24,6 +37,10 @@
     &__image-container {
         background-color: $secondary-mercury;
         width: 100%;
+
+        @include tablet {
+            width: 50%;
+        }
     }
 
     &__image {
@@ -52,17 +69,41 @@
         @include set-form-inputfeild-style;
     }
 
+    &__button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2.3rem;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: 5rem;
+            border-top: 1px solid $secondary-mercury;
+            margin-top:$dt-margin;
+        }
+    }
+
     &__publish-button {
         margin-top: $m-spacing-between-components;
         @include set-icon-style($upload-icon-url);
         @include set-button-style("Mobile");
+
+        @include tablet {
+            @include set-button-style("TabletDesktop");
+            order: 2;
+        }
     }
 
     &__cancel-link {
         @include set-font(0.75rem, 1rem, 600);
-        margin: 2.5rem 0;
         color: $primary-blue;
         text-decoration: none;
         align-self: center;
+        padding-bottom: 2.2rem;
+
+        @include tablet {
+            order: 1;
+            margin-top: $dt-spacing-between-components;
+        }
     }
 }

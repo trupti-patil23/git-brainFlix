@@ -22,11 +22,12 @@ const UploadVideoPage = () => {
                     <input className="upload__video-name" type="text" placeholder="Add a title to your video" />
                     <label className="upload__label">ADD A VIDEO DESCRIPTION</label>
                     <textarea className="upload__video-description" placeholder="Add a descrition to your video"></textarea>
-                    <button className="upload__publish-button">PUBLISH</button>
-                    <Link className="upload__cancel-link">CANCEL</Link>
+                    <div className="upload__button-container">
+                        <button className="upload__publish-button">PUBLISH</button>
+                        <Link className="upload__cancel-link">CANCEL</Link>
+                    </div>
                 </form>
             </div>
-
         </section>
     );
 }
