@@ -21,7 +21,7 @@
         @include desktop {
             flex-wrap: wrap;
             flex-direction: row;
-            justify-content: space-between;
+            column-gap: 1.5rem;
             margin-left: 8rem;
             margin-right: 8rem;
         }
@@ -31,10 +31,13 @@
         display: flex;
         flex-direction: column;
 
-        @include desktop {
-            width: 30%;
-            height: fit-content;
-            border-bottom: 1px solid $secondary-mercury;
+        @include tablet {
+            margin-top: 0.5rem;
+        }
+
+        @include desktop {                              
+            margin-top: 0; 
+            max-width: 31.5%;                  
         }
     }
 
@@ -57,10 +60,15 @@
         @include set-mobile-font("LabelFont");
         margin-top: $m-margin;
         color: $primary-silver;
+
+        @include desktop{
+            margin-top:$dt-margin;
+        }
     }
 
     &__image-container {
         background-color: $secondary-mercury;
+        border-radius: $border-radius;
         width: 100%;
 
         @include tablet {
@@ -85,7 +93,7 @@
         flex-direction: column;
 
         @include desktop {
-            width: 65%;
+            max-width: 66%;                       
         }
     }
 
@@ -93,13 +101,21 @@
         height: 2.5rem;
         padding: 0.8rem;
         @include set-form-inputfeild-style;
+
+        @include desktop {
+            flex-grow: 1;
+        }
     }
 
     &__video-description {
-        height: 5.3rem;
+        height: 5.4rem;
         padding: 0.8rem;
         resize: none;
         @include set-form-inputfeild-style;
+
+        @include desktop {
+            flex-grow: 1;
+        }
     }
 
     &__button-container {
@@ -117,6 +133,7 @@
 
         @include desktop {
             width: 100%;
+            margin-top: 1.8rem;
         }
     }
 

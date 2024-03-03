@@ -43,6 +43,7 @@
 
     &__image-container {
         background-color: $secondary-mercury;
+        border-radius: $border-radius;
         width:40%;  
         
         @include tablet {
