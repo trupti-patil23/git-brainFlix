@@ -6,7 +6,9 @@
 .upload {
     border-top: 1px solid $secondary-mercury;
 
-    &__hero-container {
+    &__main-container {
+        display: flex;
+        flex-direction: column;
         margin-left: $m-margin;
         margin-right: $m-margin;
 
@@ -15,20 +17,43 @@
             margin-right: $dt-spacing-between-components;
             border-top: 1px solid $secondary-mercury;
         }
+
+        @include desktop {
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: 8rem;
+            margin-right: 8rem;
+        }
+    }
+
+    &__hero-container {
+        display: flex;
+        flex-direction: column;
+
+        @include desktop {
+            width: 30%;
+            height: fit-content;
+            border-bottom: 1px solid $secondary-mercury;
+        }
     }
 
     &__title {
-        margin: $m-spacing-between-components 0 $m-margin $m-margin;
+        margin: $m-spacing-between-components 0 0 $m-margin;
         @include set-mobile-font("PageHeader");
 
         @include tablet {
             margin: $dt-spacing-between-components 0 $dt-margin $dt-spacing-between-components;
-
             @include set-desktop-tablet-font("PageHeader");
+        }
+
+        @include desktop {
+            margin-left: 8rem;
         }
     }
 
     &__label {
+        width: 100%;
         @include set-mobile-font("LabelFont");
         margin-top: $m-margin;
         color: $primary-silver;
@@ -40,6 +65,10 @@
 
         @include tablet {
             width: 50%;
+        }
+
+        @include desktop {
+            width: 100%;
         }
     }
 
@@ -54,6 +83,10 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+
+        @include desktop {
+            width: 65%;
+        }
     }
 
     &__video-name {
@@ -63,7 +96,7 @@
     }
 
     &__video-description {
-        height: 5.5rem;
+        height: 5.3rem;
         padding: 0.8rem;
         resize: none;
         @include set-form-inputfeild-style;
@@ -79,13 +112,17 @@
             justify-content: flex-end;
             gap: 5rem;
             border-top: 1px solid $secondary-mercury;
-            margin-top:$dt-margin;
+            margin-top: $dt-margin;
+        }
+
+        @include desktop {
+            width: 100%;
         }
     }
 
     &__publish-button {
         margin-top: $m-spacing-between-components;
-        @include set-icon-style($upload-icon-url);
+        @include set-icon-style($publish-icon-url);
         @include set-button-style("Mobile");
 
         @include tablet {
