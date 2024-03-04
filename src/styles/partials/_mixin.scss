@@ -90,4 +90,8 @@
         color: $secondary-darkBlack;
         font-size: small;
     }
+
+    &:focus {
+        outline-color: $primary-blue;
+    }
 }

@@ -23,6 +23,19 @@ const HomePage = () => {
     const [selectedVideo, setSelectedVideo] = useState({});
 
     /**
+     * Added postComment method to post new comment      * 
+     * @param {*} comment 
+     */
+    async function postComment(comment) {
+        try {
+            const response = await axios.post(`${BRAINFLIX_API_URL}/videos/${params.selectedVideoId}/comments?api_key=${BRAINFLIX_API_KEY}`, comment);
+            setSelectedVideoData(params.selectedVideoId);
+        } catch (error) {
+            console.log("Error in posting a comment:", error);
+        }
+    }
+
+    /**
      * Added to get selected Video data from API for give video Id
      * @param {*} selectedVideoId 
      * @returns 
@@ -39,23 +52,11 @@ const HomePage = () => {
     /**
      *Below useEffect() will run only once, when component mounts for the first time
      */
-    useEffect(() => {
-
-        /**
-         * Added below function to get video list from API
-         */
+    useEffect(() => {               
         async function getVideosList() {
             try {
                 const response = await axios.get(`${BRAINFLIX_API_URL}/videos?api_key=${BRAINFLIX_API_KEY}`);
-                const responseVideoList = response.data;
-                setVideoList(responseVideoList);
-
-                /*Set Video Data to state variable "selectedVideo" using Axios call with default video Id, 
-                Sent default video id if we get empty response in previous Axios call(list of videos) */
-                if(!responseVideoList) {
-                    setSelectedVideo(await getSelecetdVideoData(BRAINFLIX_DEFAULT_VIDEO_ID));
-                }
-
+                setVideoList(response.data);
             } catch (error) {
                 console.log("Error in getting videos list from useEffect()->getVideosList() method", error);
             }
@@ -64,31 +65,30 @@ const HomePage = () => {
     }, []);
 
     /**
+     * Added to get selected video data from API
+     * @param {*} videoId 
+     */
+    async function setSelectedVideoData(videoId) {      
+        setSelectedVideo(await getSelecetdVideoData(videoId));
+    }
+
+    /**
      * Below useEffect() will run everytime, when param changes its state
      */
     useEffect(() => {
-        /**
-         * Added below function,calls to getSelecetdVideoData(), 
-         * which gives AXIOS API call to get selected video details for given videoId.
-         * set "selectedVideo" state varible with updated video data using setSelectedVideo() 
-         */
-        async function setSelectedVideoData() {
-            if (params.selectedVideoId) {               
-                setSelectedVideo( await getSelecetdVideoData(params.selectedVideoId));
-            } else {
-                setSelectedVideo(await getSelecetdVideoData(BRAINFLIX_DEFAULT_VIDEO_ID));
-            }
-        }
-        setSelectedVideoData();
-    }, [params]);
 
-    //Destructuring selectedVideo object for <SelectedVideo> component
-    const { image } = selectedVideo;
+        if (params.selectedVideoId) {
+            setSelectedVideoData(params.selectedVideoId);
+        } else {
+            setSelectedVideoData(BRAINFLIX_DEFAULT_VIDEO_ID);
+        }
+
+    }, [params]);    
 
     return (
         <div className="home">
-            
-            <SelectedVideo image={image} />
+
+            <SelectedVideo image={selectedVideo.image} />
 
             <div className="home__container">
                 <div className="home__column">
@@ -98,7 +98,8 @@ const HomePage = () => {
                     </div>
 
                     <div className="home__row">
-                        <Comments selectedVideoComments={selectedVideo.comments} />
+                        <Comments selectedVideoComments={selectedVideo.comments}
+                            postComment={postComment} />
                     </div>
 
                 </div>
