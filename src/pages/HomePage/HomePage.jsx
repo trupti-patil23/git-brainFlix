@@ -23,13 +23,29 @@ const HomePage = () => {
     const [selectedVideo, setSelectedVideo] = useState({});
 
     /**
-     * Added postComment method to post new comment      * 
+     * Added deleteComment to delete given commentId from API using axios call
+     * @param {*} commentId 
+     */
+    async function deleteComment(commentId) {
+        let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId ;
+      
+        try {          
+            const response = await axios.delete(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments/${commentId}?api_key=${BRAINFLIX_API_KEY}`);
+            setSelectedVideoData(videoIdForAPI);
+        } catch(error) {
+            console.log("Error in deleting a comment:", error);
+        }        
+    }
+
+    /**
+     * Added postComment method to post new comment into APi using axios call      
      * @param {*} comment 
      */
     async function postComment(comment) {
-        try {
-            const response = await axios.post(`${BRAINFLIX_API_URL}/videos/${params.selectedVideoId}/comments?api_key=${BRAINFLIX_API_KEY}`, comment);
-            setSelectedVideoData(params.selectedVideoId);
+        let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId ;     
+        try {             
+            const response = await axios.post(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments?api_key=${BRAINFLIX_API_KEY}`, comment);
+            setSelectedVideoData(videoIdForAPI);
         } catch (error) {
             console.log("Error in posting a comment:", error);
         }
@@ -99,7 +115,8 @@ const HomePage = () => {
 
                     <div className="home__row">
                         <Comments selectedVideoComments={selectedVideo.comments}
-                            postComment={postComment} />
+                            postComment={postComment} 
+                            deleteComment={deleteComment}/>
                     </div>
 
                 </div>

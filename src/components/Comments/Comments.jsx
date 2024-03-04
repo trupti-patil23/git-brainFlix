@@ -1,5 +1,6 @@
 import "./Comments.scss";
 import CommentImage from "./../../assets/images/Mohan-muruge.jpg";
+import DeleteComment from "./../../assets/icons/icon-delete.svg";
 import formatLocaleDate from "./../../scripts/utils.js";
 
 /**
@@ -9,10 +10,18 @@ import formatLocaleDate from "./../../scripts/utils.js";
  * @param {*} selectedVideoComments 
  * @returns 
  */
-const Comments = ({ selectedVideoComments, postComment }) => {
+const Comments = ({ selectedVideoComments, postComment, deleteComment }) => {
 
     const form = document.getElementById("comment-form");
     let commentsArray = [];
+
+    /**
+     * Added to delete comment from API, when user clicks on Delete icon,
+     * @param {*} event 
+     */
+    const handleDelete = (event) => {       
+        deleteComment(event.target.id);
+    }
 
     /**
      * This get called onChange of value in the textarea
@@ -105,6 +114,12 @@ const Comments = ({ selectedVideoComments, postComment }) => {
                                         </div>
                                         <div className="comments__item-comment">
                                             {commentObject.comment}
+                                        </div>
+                                        <div>
+                                            <img className="comments__delete" 
+                                            src={DeleteComment} alt="DeleteComment"
+                                            id={commentObject.id} 
+                                            onClick={handleDelete}/>
                                         </div>
                                     </div>
                                 </div>
