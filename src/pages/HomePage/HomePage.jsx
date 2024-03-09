@@ -2,7 +2,7 @@ import "./HomePage.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { BRAINFLIX_API_KEY, BRAINFLIX_DEFAULT_VIDEO_ID, BRAINFLIX_API_URL } from "./../../scripts/utils.js"
+import { BRAINFLIX_DEFAULT_VIDEO_ID, BRAINFLIX_API_URL } from "./../../scripts/utils.js"
 import SelectedVideo from "./../../components/SelectedVideo/SelectedVideo.jsx";
 import SelectedVideoDetails from "./../../components/SelectedVideoDetails/SelectedVideoDetails.jsx";
 import Comments from "./../../components/Comments/Comments.jsx";
@@ -23,18 +23,33 @@ const HomePage = () => {
     const [selectedVideo, setSelectedVideo] = useState({});
 
     /**
+     * when use clicks on liles image and likes count,
+     *  It will call PUT axios calls(/videos/:videoId/likes) to increment likes count by 1.
+     * @param {*} videoId 
+     */
+    async function likeVideo(videoId) {
+        let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId;
+        try {
+            const response = await axios.put(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/likes`);
+            setSelectedVideoData(videoIdForAPI);
+        } catch (error) {
+            console.log("Error in liking a video:", error);
+        }
+    }
+
+    /**
      * Added deleteComment to delete given commentId from API using axios call
      * @param {*} commentId 
      */
     async function deleteComment(commentId) {
-        let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId ;
-      
-        try {          
+        let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId;
+
+        try {
             const response = await axios.delete(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments/${commentId}`);
             setSelectedVideoData(videoIdForAPI);
-        } catch(error) {
+        } catch (error) {
             console.log("Error in deleting a comment:", error);
-        }        
+        }
     }
 
     /**
@@ -42,8 +57,8 @@ const HomePage = () => {
      * @param {*} comment 
      */
     async function postComment(comment) {
-        let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId ;     
-        try {             
+        let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId;
+        try {
             const response = await axios.post(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments`, comment);
             setSelectedVideoData(videoIdForAPI);
         } catch (error) {
@@ -68,11 +83,11 @@ const HomePage = () => {
     /**
      *Below useEffect() will run only once, when component mounts for the first time
      */
-    useEffect(() => {               
+    useEffect(() => {
         async function getVideosList() {
             try {
-                console.log(`${BRAINFLIX_API_URL}/videos`);
                 const response = await axios.get(`${BRAINFLIX_API_URL}/videos`);
+                console.log(response)
                 setVideoList(response.data);
             } catch (error) {
                 console.log("Error in getting videos list from useEffect()->getVideosList() method", error);
@@ -85,7 +100,7 @@ const HomePage = () => {
      * Added to get selected video data from API
      * @param {*} videoId 
      */
-    async function setSelectedVideoData(videoId) {      
+    async function setSelectedVideoData(videoId) {
         setSelectedVideo(await getSelecetdVideoData(videoId));
     }
 
@@ -100,7 +115,7 @@ const HomePage = () => {
             setSelectedVideoData(BRAINFLIX_DEFAULT_VIDEO_ID);
         }
 
-    }, [params]);    
+    }, [params]);
 
     return (
         <div className="home">
@@ -110,13 +125,14 @@ const HomePage = () => {
                 <div className="home__column">
 
                     <div className="home__row">
-                        <SelectedVideoDetails selectedVideo={selectedVideo} />
+                        <SelectedVideoDetails selectedVideo={selectedVideo}
+                            likeVideo={likeVideo} />
                     </div>
 
                     <div className="home__row">
                         <Comments selectedVideoComments={selectedVideo?.comments}
-                            postComment={postComment} 
-                            deleteComment={deleteComment}/>
+                            postComment={postComment}
+                            deleteComment={deleteComment} />
                     </div>
 
                 </div>

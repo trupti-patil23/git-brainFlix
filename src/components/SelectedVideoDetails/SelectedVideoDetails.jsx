@@ -9,8 +9,15 @@ import LikesImage from "./../../assets/icons/likes.svg";
  * @param {*} selectedVideo 
  * @returns 
  */
+const SelectedVideoDetails = ({ selectedVideo, likeVideo}) => {
+    /**
+     * Added to allow user to like the selected video
+     * @param {*} event 
+     */
+    const handleLikes = (event) => {                
+        likeVideo(event.target.id);
+    }
 
-const SelectedVideoDetails = ({ selectedVideo }) => {
     if (selectedVideo) {
         return (
             <section className="details">
@@ -36,9 +43,10 @@ const SelectedVideoDetails = ({ selectedVideo }) => {
                                 {selectedVideo.views}
                             </div>
                         </div>
-                        <div className="details__vl-subcontainer">
+                        <div className="details__vl-subcontainer"
+                            onClick={handleLikes} id={selectedVideo.id}>
                             <div>
-                                <img className="details__icons" src={LikesImage} alt="ViewsImage"></img>
+                                <img className="details__icons" src={LikesImage} alt="LikesImage"></img>
                             </div>
                             <div className="details__likes">
                                 {selectedVideo.likes}
