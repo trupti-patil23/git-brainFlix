@@ -30,7 +30,7 @@ const HomePage = () => {
         let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId ;
       
         try {          
-            const response = await axios.delete(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments/${commentId}?api_key=${BRAINFLIX_API_KEY}`);
+            const response = await axios.delete(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments/${commentId}`);
             setSelectedVideoData(videoIdForAPI);
         } catch(error) {
             console.log("Error in deleting a comment:", error);
@@ -44,7 +44,7 @@ const HomePage = () => {
     async function postComment(comment) {
         let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId ;     
         try {             
-            const response = await axios.post(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments?api_key=${BRAINFLIX_API_KEY}`, comment);
+            const response = await axios.post(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments`, comment);
             setSelectedVideoData(videoIdForAPI);
         } catch (error) {
             console.log("Error in posting a comment:", error);
@@ -58,7 +58,7 @@ const HomePage = () => {
      */
     async function getSelecetdVideoData(selectedVideoId) {
         try {
-            const response = await axios.get(`${BRAINFLIX_API_URL}/videos/${selectedVideoId}?api_key=${BRAINFLIX_API_KEY}`);
+            const response = await axios.get(`${BRAINFLIX_API_URL}/videos/${selectedVideoId}`);
             return response.data;
         } catch (error) {
             console.log("Error in getting selected Video data from method getSelecetdVideoData()", error);
@@ -71,7 +71,8 @@ const HomePage = () => {
     useEffect(() => {               
         async function getVideosList() {
             try {
-                const response = await axios.get(`${BRAINFLIX_API_URL}/videos?api_key=${BRAINFLIX_API_KEY}`);
+                console.log(`${BRAINFLIX_API_URL}/videos`);
+                const response = await axios.get(`${BRAINFLIX_API_URL}/videos`);
                 setVideoList(response.data);
             } catch (error) {
                 console.log("Error in getting videos list from useEffect()->getVideosList() method", error);
@@ -103,8 +104,7 @@ const HomePage = () => {
 
     return (
         <div className="home">
-
-            <SelectedVideo image={selectedVideo.image} />
+            <SelectedVideo image={selectedVideo?.image} />
 
             <div className="home__container">
                 <div className="home__column">
@@ -114,7 +114,7 @@ const HomePage = () => {
                     </div>
 
                     <div className="home__row">
-                        <Comments selectedVideoComments={selectedVideo.comments}
+                        <Comments selectedVideoComments={selectedVideo?.comments}
                             postComment={postComment} 
                             deleteComment={deleteComment}/>
                     </div>

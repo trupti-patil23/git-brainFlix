@@ -13,13 +13,12 @@ import formatLocaleDate from "./../../scripts/utils.js";
 const Comments = ({ selectedVideoComments, postComment, deleteComment }) => {
 
     const form = document.getElementById("comment-form");
-    let commentsArray = [];
 
     /**
      * Added to delete comment from API, when user clicks on Delete icon,
      * @param {*} event 
      */
-    const handleDelete = (event) => {       
+    const handleDelete = (event) => {
         deleteComment(event.target.id);
     }
 
@@ -64,6 +63,8 @@ const Comments = ({ selectedVideoComments, postComment, deleteComment }) => {
         let newComment = {
             name: "Trupti",// HardCoded       
             comment: comment,
+            likes: 0,
+            timestamp: Date.now()
         };
 
         postComment(newComment); //Passing newComment to Parent HomePage
@@ -84,8 +85,8 @@ const Comments = ({ selectedVideoComments, postComment, deleteComment }) => {
                     src={CommentImage} alt="MohanMurugeImage" />
 
                 <form className="comments__form" id="comment-form"
-                      onSubmit={handleSubmit}
-                      onChange={handleChange}> 
+                    onSubmit={handleSubmit}
+                    onChange={handleChange}>
                     <textarea className="comments__textarea" name="comment" id="comment"
                         placeholder="Add a new comment">
                     </textarea>
@@ -116,10 +117,10 @@ const Comments = ({ selectedVideoComments, postComment, deleteComment }) => {
                                             {commentObject.comment}
                                         </div>
                                         <div>
-                                            <img className="comments__delete" 
-                                            src={DeleteComment} alt="DeleteComment"
-                                            id={commentObject.id} 
-                                            onClick={handleDelete}/>
+                                            <img className="comments__delete"
+                                                src={DeleteComment} alt="DeleteComment"
+                                                id={commentObject.id}
+                                                onClick={handleDelete} />
                                         </div>
                                     </div>
                                 </div>
