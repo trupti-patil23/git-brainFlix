@@ -18,11 +18,10 @@ const VideoList = (props) => {
         <h2 className="videos__title">NEXT VIDEOS</h2>
         <ul className="videos__list">
             {   //Iterate videoListData using map and display channel,title,image property of each video
-
                 videoListData.filter((video) => (video.id !== selectedVideo.id))
                     .map((video) => {
                         return (
-                            <Link key={video.id} to={`/videos/${video.id}`}>
+                            <Link className="videos__link" key={video.id} to={`/videos/${video.id}`}>
                                 <li className="videos__item">
 
                                     <div className="videos__image-container">

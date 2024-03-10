@@ -23,14 +23,14 @@ const HomePage = () => {
     const [selectedVideo, setSelectedVideo] = useState({});
 
     /**
-     * when use clicks on liles image and likes count,
+     * when use clicks on likes image and likes count,
      *  It will call PUT axios calls(/videos/:videoId/likes) to increment likes count by 1.
      * @param {*} videoId 
      */
     async function likeVideo(videoId) {
         let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId;
         try {
-            const response = await axios.put(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/likes`);
+            await axios.put(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/likes`);
             setSelectedVideoData(videoIdForAPI);
         } catch (error) {
             console.log("Error in liking a video:", error);
@@ -43,9 +43,8 @@ const HomePage = () => {
      */
     async function deleteComment(commentId) {
         let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId;
-
         try {
-            const response = await axios.delete(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments/${commentId}`);
+            await axios.delete(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments/${commentId}`);
             setSelectedVideoData(videoIdForAPI);
         } catch (error) {
             console.log("Error in deleting a comment:", error);
@@ -59,7 +58,7 @@ const HomePage = () => {
     async function postComment(comment) {
         let videoIdForAPI = params ? selectedVideo.id : params.selectedVideoId;
         try {
-            const response = await axios.post(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments`, comment);
+            await axios.post(`${BRAINFLIX_API_URL}/videos/${videoIdForAPI}/comments`, comment);
             setSelectedVideoData(videoIdForAPI);
         } catch (error) {
             console.log("Error in posting a comment:", error);
@@ -86,8 +85,7 @@ const HomePage = () => {
     useEffect(() => {
         async function getVideosList() {
             try {
-                const response = await axios.get(`${BRAINFLIX_API_URL}/videos`);
-                console.log(response)
+                const response = await axios.get(`${BRAINFLIX_API_URL}/videos`);              
                 setVideoList(response.data);
             } catch (error) {
                 console.log("Error in getting videos list from useEffect()->getVideosList() method", error);
