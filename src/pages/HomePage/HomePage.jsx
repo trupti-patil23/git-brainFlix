@@ -2,7 +2,7 @@ import "./HomePage.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { BRAINFLIX_DEFAULT_VIDEO_ID, BRAINFLIX_API_URL } from "./../../scripts/utils.js"
+import { BRAINFLIX_DEFAULT_VIDEO_ID, BRAINFLIX_API_URL } from "./../../scripts/utils.js";
 import SelectedVideo from "./../../components/SelectedVideo/SelectedVideo.jsx";
 import SelectedVideoDetails from "./../../components/SelectedVideoDetails/SelectedVideoDetails.jsx";
 import Comments from "./../../components/Comments/Comments.jsx";
@@ -13,8 +13,8 @@ import VideoList from "./../../components/VideoList/VideoList.jsx";
  * <SelectedVideo>,<SelectedVideoDetails>,<Comments>, <VideoList>
  * @returns 
  */
-const HomePage = () => {
-    const params = useParams();
+const HomePage = () => { 
+    const params = useParams();  
 
     //Added "videoList" state variable to show all video's list
     const [videoList, setVideoList] = useState([]);
@@ -85,7 +85,7 @@ const HomePage = () => {
     useEffect(() => {
         async function getVideosList() {
             try {
-                const response = await axios.get(`${BRAINFLIX_API_URL}/videos`);              
+                const response = await axios.get(`${BRAINFLIX_API_URL}/videos`);                 
                 setVideoList(response.data);
             } catch (error) {
                 console.log("Error in getting videos list from useEffect()->getVideosList() method", error);

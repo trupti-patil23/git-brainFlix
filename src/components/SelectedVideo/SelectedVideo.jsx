@@ -5,13 +5,15 @@ import "./SelectedVideo.scss";
  * @param {*} image 
  * @returns 
  */
-const SelectedVideo = ({image}) => {
-    return (
-        <div className="selected">           
-            <video poster={image} className="selected__poster" controls> 
-            </video>
-        </div>
-    );
+const SelectedVideo = ({ image }) => {
+    if (image) {
+        return (
+            <div className="selected">
+                <video poster={`${process.env.REACT_APP_API_URL}/${image}`} className="selected__poster" controls>
+                </video>
+            </div>
+        );
+    }
 }
 
 export default SelectedVideo;

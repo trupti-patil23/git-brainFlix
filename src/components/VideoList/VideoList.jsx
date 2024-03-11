@@ -3,29 +3,23 @@ import { Link } from "react-router-dom";
 
 /**
  * VideoList Component:Added to list down all the video's details(channel,title,image) 
- * from video-details.json file
- * @param {*} props 
+ * from video-details.json file 
+ * @param {videoList, selectedVideo} 
  * @returns 
  */
-const VideoList = (props) => {
-    //Get the video's list from props and set it to videoListData
-    const videoListData = props.videoList;
-
-    //Get the selected video and set it to selectedVideo
-    const selectedVideo = props.selectedVideo;
-
+const VideoList = ({videoList, selectedVideo}) => {
     return (<section className="videos">
         <h2 className="videos__title">NEXT VIDEOS</h2>
         <ul className="videos__list">
-            {   //Iterate videoListData using map and display channel,title,image property of each video
-                videoListData.filter((video) => (video.id !== selectedVideo.id))
+            {   //Iterate videoList using map and display channel,title,image property of each video
+                videoList.filter((video) => (video.id !== selectedVideo.id))
                     .map((video) => {
                         return (
                             <Link className="videos__link" key={video.id} to={`/videos/${video.id}`}>
                                 <li className="videos__item">
 
                                     <div className="videos__image-container">
-                                        <img className="videos__image" src={video.image} alt="VideoImage"></img>
+                                        <img className="videos__image" src={`${process.env.REACT_APP_API_URL}/${video.image}`} alt="VideoImage"></img>
                                     </div>
                                     
                                     <div className="videos__title-container">

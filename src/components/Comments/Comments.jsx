@@ -7,7 +7,7 @@ import formatLocaleDate from "./../../scripts/utils.js";
  * Comments component: Added this component for,
  * a. Join the Conversation section : Users to add new comment for selected video
  * b. List down all comments for selected video
- * @param {*} selectedVideoComments 
+ * @param {selectedVideoComments, postComment, deleteComment} 
  * @returns 
  */
 const Comments = ({ selectedVideoComments, postComment, deleteComment }) => {

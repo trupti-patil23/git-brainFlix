@@ -6,7 +6,7 @@ import LikesImage from "./../../assets/icons/likes.svg";
 /**
  * SelectedVideoDetails Component: Added this component to display selected(from NextVideo section) video's details as,
  * title, channel,timestamp,likes,views,description
- * @param {*} selectedVideo 
+ * @param { selectedVideo, likeVideo}  
  * @returns 
  */
 const SelectedVideoDetails = ({ selectedVideo, likeVideo}) => {

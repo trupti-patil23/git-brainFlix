@@ -1,9 +1,8 @@
 //This defalt id points to the first video id from API
 export const BRAINFLIX_DEFAULT_VIDEO_ID = "84e96018-4022-434e-80bf-000ce4cd12b8";
 
-//Back-End API URL to fetch videos data 
-export const BRAINFLIX_API_URL="http://127.0.0.1:8080";
-
+ //Get API URL from .env file
+ export const BRAINFLIX_API_URL=process.env.REACT_APP_API_URL;
 
 /**
  * Added to covert date to human readable format eg. "10 minutes ago" or "3 days ago"
