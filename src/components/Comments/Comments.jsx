@@ -19,7 +19,12 @@ const Comments = ({ selectedVideoComments, postComment, deleteComment }) => {
      * @param {*} event 
      */
     const handleDelete = (event) => {
-        deleteComment(event.target.id);
+        setTimeout(() => {
+            const confirmDelete = window.confirm('Do you want to delete?');
+            if (confirmDelete) {
+                 deleteComment(event.target.id);
+            }
+        }, 0);
     }
 
     /**
@@ -38,7 +43,7 @@ const Comments = ({ selectedVideoComments, postComment, deleteComment }) => {
      * @param {*} event 
      * @returns 
      */
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault(); //prevent form from submitting        
         let returnFlag = false;
 

@@ -2,7 +2,7 @@ import "./HomePage.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { BRAINFLIX_DEFAULT_VIDEO_ID, BRAINFLIX_API_URL } from "./../../scripts/utils.js";
+import { BRAINFLIX_API_URL } from "./../../scripts/utils.js";
 import SelectedVideo from "./../../components/SelectedVideo/SelectedVideo.jsx";
 import SelectedVideoDetails from "./../../components/SelectedVideoDetails/SelectedVideoDetails.jsx";
 import Comments from "./../../components/Comments/Comments.jsx";
@@ -21,6 +21,9 @@ const HomePage = () => {
 
     //Added "selectedVideo" state variable to show selected video's details
     const [selectedVideo, setSelectedVideo] = useState({});
+
+    //Added "defaultVideoId" state variable to show default video details
+    const [defaultVideoId, setDefaultVideoId] = useState("");
 
     /**
      * when use clicks on likes image and likes count,
@@ -87,6 +90,7 @@ const HomePage = () => {
             try {
                 const response = await axios.get(`${BRAINFLIX_API_URL}/videos`);                 
                 setVideoList(response.data);
+                setDefaultVideoId(response.data[0].id);                             
             } catch (error) {
                 console.log("Error in getting videos list from useEffect()->getVideosList() method", error);
             }
@@ -110,10 +114,10 @@ const HomePage = () => {
         if (params.selectedVideoId) {
             setSelectedVideoData(params.selectedVideoId);
         } else {
-            setSelectedVideoData(BRAINFLIX_DEFAULT_VIDEO_ID);
+            setSelectedVideoData(defaultVideoId);
         }
 
-    }, [params]);
+    }, [params, defaultVideoId]);
 
     return (
         <div className="home">

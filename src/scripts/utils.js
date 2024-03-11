@@ -1,6 +1,3 @@
-//This defalt id points to the first video id from API
-export const BRAINFLIX_DEFAULT_VIDEO_ID = "84e96018-4022-434e-80bf-000ce4cd12b8";
-
  //Get API URL from .env file
  export const BRAINFLIX_API_URL=process.env.REACT_APP_API_URL;
 
